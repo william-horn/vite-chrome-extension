@@ -1,3 +1,4 @@
+import { resolve } from "path";
 import { defineConfig } from "vite";
 import { chromeExtension } from "vite-plugin-chrome-extension";
 
@@ -12,7 +13,11 @@ export default defineConfig({
 
   build: {
     rollupOptions: {
-      input: "src/manifest.json"
+      // input: {
+      //   manifest: "src/manifest.json",
+      //   main: "src/main.js",
+      // }
+      input: "src/manifest.json",
     }
   }
 });
