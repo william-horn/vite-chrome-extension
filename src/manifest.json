@@ -5,14 +5,14 @@
   "author": "William J. Horn",
   "description": "A plain text description",
 
-  "actions": {
+  "action": {
     "default_icon": {
       "16": "/assets/logo3-16.png",
       "48": "/assets/logo3-48.png",
       "128": "/assets/logo3-128.png"
     },
     "default_title": "Open Me",
-    "default_popup": "../index.html"
+    "default_popup": "popups/test.html"
   },
 
   "icons": {
