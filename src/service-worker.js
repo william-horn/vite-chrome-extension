@@ -1,5 +1,6 @@
 
-import test_module from "./lib/helpers/test_module";
+import YCB from "./bots/YouTubeCommentBot";
 
-console.log("Some service worker");
-console.log(test_module);
+YCB.onServiceBotRequest((request, sender, sendResponse) => {
+
+});

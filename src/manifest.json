@@ -24,7 +24,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content-scripts/content.js"]
+      "js": ["content-scripts/content-main.js"]
     }
   ],
 
@@ -34,7 +34,8 @@
 
   "permissions": [
     "tabs",
-    "webNavigation"
+    "webNavigation",
+    "storage"
   ]
 }
 
