@@ -1,29 +1,53 @@
 
 import Bot, { 
   BotStatusType, 
+  BotProgressionType,
   BotServiceRequest,
   BotContentRequest,
 } from "../lib/Bot";
 
-const YCB = new Bot({ name: "YouTubeCommentBot" });
+const YCB = new Bot({ 
+  name: "YouTubeCommentBot",
+  steps: [
+    clickButton,
+    findName,
+    submitData
+  ]
+});
+
+const cycle1 = YCB.createCycle();
+
+cycle1.addStep(() => {
+  const button = document.querySelector("something");
+  button.click();
+
+});
+
+cycle2.addStep(() => {
+
+});
+
 
 async function* bot_main(options) {
   console.log("Bot has started running...");
 
   while (true) {
     console.log("First click button");
-    // *if _stepCheckpoint returns Resume, keep executing...
-    // *if _stepCheckpoint returns Cycle, keep executing...
-    // *if _stepCheckpoint returns Step, then yield
-    yield YCB._stepCheckpoint();
+
+    yield BotProgressionType.Step;
 
     console.log("Now copying text...");
-    yield YCB._stepCheckpoint();
+
+    yield BotProgressionType.Step;
+
+    console.log("Restarting...");
+
+    yield BotProgressionType.Cycle;
   }
 
   console.log("Bot finished");
 
-  yield YCB._cycleCheckpoint();
+  yield BotProgressionType.Exit;
 }
 
 YCB.program(bot_main);
